@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypt-Decrypt | Accueil</title>
+    <link rel="icon" href="assets/images/private-key.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Crypt<span>Decrypt</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item active"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="classic.html"><i class="fas fa-history"></i> Classique</a></li>
+                    <li class="nav-item"><a href="symmetric.html"><i class="fas fa-key"></i> Symétrique</a></li>
+                    <li class="nav-item"><a href="asymmetric.html"><i class="fas fa-key"></i><i class="fas fa-key"></i> Asymétrique</a></li>
+                    <li class="nav-item"><a href="hash.html"><i class="fas fa-hashtag"></i> Hachage</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1>Explorer le monde de la cryptographie</h1>
+                <p>Un outil complet pour chiffrer, déchiffrer et comprendre les principes de la cryptographie moderne.</p>
+                <div class="cta-buttons">
+                    <a href="classic.html" class="btn btn-primary">Commencer</a>
+                    <a href="#features" class="btn btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Nos fonctionnalités</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Chiffrements classiques</h3>
+                        <p>César, Vigenère et autres méthodes historiques de chiffrement.</p>
+                        <a href="classic.html" class="btn btn-outline">Explorer</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Cryptographie symétrique</h3>
+                        <p>Méthodes utilisant une seule clé comme AES pour chiffrer/déchiffrer.</p>
+                        <a href="symmetric.html" class="btn btn-outline">Explorer</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-key"></i><i class="fas fa-key"></i>
+                        </div>
+                        <h3>Cryptographie asymétrique</h3>
+                        <p>Méthodes utilisant des paires de clés publiques/privées comme RSA.</p>
+                        <a href="asymmetric.html" class="btn btn-outline">Explorer</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h3>Hachage et signatures</h3>
+                        <p>Fonctions de hachage (SHA256) et signatures numériques.</p>
+                        <a href="hash.html" class="btn btn-outline">Explorer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Crypt-Decrypt</h3>
+                    <p>Un projet éducatif pour explorer les différentes techniques de cryptographie.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="classic.html">Chiffrement classique</a></li>
+                        <li><a href="symmetric.html">Cryptographie symétrique</a></li>
+                        <li><a href="asymmetric.html">Cryptographie asymétrique</a></li>
+                        <li><a href="hash.html">Hachage et signature</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@cryptdecrypt.example</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Crypt-Decrypt. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

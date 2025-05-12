@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypt-Decrypt | Chiffrement Classique</title>
+    <link rel="icon" href="assets/images/private-key.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Crypt<span>Decrypt</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item active"><a href="classic.html"><i class="fas fa-history"></i> Classique</a></li>
+                    <li class="nav-item"><a href="symmetric.html"><i class="fas fa-key"></i> Symétrique</a></li>
+                    <li class="nav-item"><a href="asymmetric.html"><i class="fas fa-key"></i><i class="fas fa-key"></i> Asymétrique</a></li>
+                    <li class="nav-item"><a href="hash.html"><i class="fas fa-hashtag"></i> Hachage</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1>Chiffrement Classique</h1>
+                <p>Explorez les méthodes historiques de chiffrement comme César, Vigenère, Atbash et plus encore.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-tabs">
+                    <button class="tab-btn active" data-tab="caesar">César</button>
+                    <button class="tab-btn" data-tab="vigenere">Vigenère</button>
+                    <button class="tab-btn" data-tab="atbash">Atbash</button>
+                    <button class="tab-btn" data-tab="substitution">Substitution</button>
+                    <button class="tab-btn" data-tab="rot13">ROT13</button>
+                </div>
+
+                <div id="caesar" class="tool-content active">
+                    <div class="input-group">
+                        <label for="caesar-text">Texte à chiffrer/déchiffrer</label>
+                        <textarea id="caesar-text" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="caesar-shift">Décalage (nombre)</label>
+                        <input type="number" id="caesar-shift" placeholder="3" min="1" max="25">
+                    </div>
+                    <div class="btn-group">
+                        <button id="caesar-encrypt" class="btn btn-primary"><i class="fas fa-lock"></i> Chiffrer</button>
+                        <button id="caesar-decrypt" class="btn btn-secondary"><i class="fas fa-lock-open"></i> Déchiffrer</button>
+                        <button id="caesar-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="caesar-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="caesar-result">Résultat</label>
+                        <textarea id="caesar-result" readonly placeholder="Le résultat apparaîtra ici..."></textarea>
+                    </div>
+                </div>
+
+                <div id="vigenere" class="tool-content">
+                    <div class="input-group">
+                        <label for="vigenere-text">Texte à chiffrer/déchiffrer</label>
+                        <textarea id="vigenere-text" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="vigenere-key">Clé (lettres seulement)</label>
+                        <input type="text" id="vigenere-key" placeholder="clé">
+                    </div>
+                    <div class="btn-group">
+                        <button id="vigenere-encrypt" class="btn btn-primary"><i class="fas fa-lock"></i> Chiffrer</button>
+                        <button id="vigenere-decrypt" class="btn btn-secondary"><i class="fas fa-lock-open"></i> Déchiffrer</button>
+                        <button id="vigenere-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="vigenere-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="vigenere-result">Résultat</label>
+                        <textarea id="vigenere-result" readonly placeholder="Le résultat apparaîtra ici..." ></textarea>
+                    </div>
+                </div>
+
+                <div id="atbash" class="tool-content">
+                    <div class="input-group">
+                        <label for="atbash-text">Texte à chiffrer/déchiffrer</label>
+                        <textarea id="atbash-text" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="note-box">
+                        <p><i class="fas fa-info-circle"></i> Le chiffre Atbash est son propre inverse : le même algorithme est utilisé pour chiffrer et déchiffrer.</p>
+                    </div>
+                    <div class="btn-group">
+                        <button id="atbash-process" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Chiffrer/Déchiffrer</button>
+                        <button id="atbash-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="atbash-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="atbash-result">Résultat</label>
+                        <textarea id="atbash-result" readonly placeholder="Le résultat apparaîtra ici..." ></textarea>
+                    </div>
+                </div>
+
+                <div id="substitution" class="tool-content">
+                    <div class="input-group">
+                        <label for="substitution-text">Texte à chiffrer/déchiffrer</label>
+                        <textarea id="substitution-text" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="substitution-key">Clé de substitution (26 lettres)</label>
+                        <input type="text" id="substitution-key" placeholder="ZYXWVUTSRQPONMLKJIHGFEDCBA" maxlength="26">
+                        <p class="input-help">Entrez les 26 lettres qui remplaceront A-Z (par défaut: alphabet inversé)</p>
+                    </div>
+                    <div class="btn-group">
+                        <button id="substitution-encrypt" class="btn btn-primary"><i class="fas fa-lock"></i> Chiffrer</button>
+                        <button id="substitution-decrypt" class="btn btn-secondary"><i class="fas fa-lock-open"></i> Déchiffrer</button>
+                        <button id="substitution-random" class="btn btn-warning"><i class="fas fa-random"></i> Clé Aléatoire</button>
+                        <button id="substitution-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="substitution-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="substitution-result">Résultat</label>
+                        <textarea id="substitution-result" readonly placeholder="Le résultat apparaîtra ici..." ></textarea>
+                    </div>
+                </div>
+
+                <div id="rot13" class="tool-content">
+                    <div class="input-group">
+                        <label for="rot13-text">Texte à chiffrer/déchiffrer</label>
+                        <textarea id="rot13-text" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="note-box">
+                        <p><i class="fas fa-info-circle"></i> ROT13 est un cas spécial du chiffre de César avec un décalage fixe de 13 positions. C'est son propre inverse.</p>
+                    </div>
+                    <div class="btn-group">
+                        <button id="rot13-process" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Chiffrer/Déchiffrer</button>
+                        <button id="rot13-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="rot13-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="rot13-result">Résultat</label>
+                        <textarea id="rot13-result" readonly placeholder="Le résultat apparaîtra ici..." ></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <h2>À propos des chiffrements classiques</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Chiffre de César</h3>
+                        <p>Un des plus anciens algorithmes de chiffrement, utilisé par Jules César. Il s'agit d'un chiffrement par substitution où chaque lettre du texte est remplacée par une lettre à distance fixe dans l'alphabet.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Chiffre de Vigenère</h3>
+                        <p>Une méthode de chiffrement plus avancée que César, utilisant une clé pour déterminer le décalage de chaque lettre. Considéré comme inviolable pendant longtemps ("le chiffre indéchiffrable").</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Chiffre Atbash</h3>
+                        <p>Originaire de l'hébreu ancien, il s'agit d'une simple substitution qui consiste à remplacer chaque lettre par son opposé dans l'alphabet (A→Z, B→Y, etc.). C'est un algorithme symétrique : le chiffrement est identique au déchiffrement.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Chiffre par Substitution</h3>
+                        <p>Une méthode qui remplace chaque lettre de l'alphabet par une autre lettre selon une clé prédéfinie. Plus flexible que César, il existe 26! (environ 4×10²⁶) combinaisons possibles.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>ROT13</h3>
+                        <p>Cas particulier du chiffre de César avec un décalage fixe de 13 positions. Sa particularité est qu'une seconde application du chiffrement redonne le texte original, ce qui en fait une méthode pratique pour masquer un texte sans cryptographie complexe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Crypt-Decrypt</h3>
+                    <p>Un projet éducatif pour explorer les différentes techniques de cryptographie.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="classic.html">Chiffrement classique</a></li>
+                        <li><a href="symmetric.html">Cryptographie symétrique</a></li>
+                        <li><a href="asymmetric.html">Cryptographie asymétrique</a></li>
+                        <li><a href="hash.html">Hachage et signature</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@cryptdecrypt.example</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Crypt-Decrypt. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/classic.js"></script>
+</body>
+</html>
