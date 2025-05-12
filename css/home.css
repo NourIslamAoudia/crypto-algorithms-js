@@ -2,8 +2,8 @@
 .hero {
     padding: 100px 0;
     text-align: center;
-    background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(2, 12, 27, 0.9)), 
-                url('../assets/images/corporate-cryptography.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.653), rgba(2, 12, 27, 0.663)), 
+                url('../assets/images/Cryptography.jpg') no-repeat center center/cover;
     color: var(--light-color);
     position: relative;
     overflow: hidden;
@@ -23,6 +23,7 @@
 .hero .container {
     position: relative;
     z-index: 1;
+    padding: 0 20px;
 }
 
 .hero h1 {
