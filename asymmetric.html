@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypt-Decrypt | Cryptographie Asymétrique</title>
+    <link rel="icon" href="assets/images/private-key.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <!-- Header commun -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Crypt<span>Decrypt</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="classic.html"><i class="fas fa-history"></i> Chiffrement classique</a></li>
+                    <li class="nav-item"><a href="symmetric.html"><i class="fas fa-key"></i> Cryptographie symétrique</a></li>
+                    <li class="nav-item active"><a href="asymmetric.html"><i class="fas fa-key"></i><i class="fas fa-key"></i> Cryptographie asymétrique</a></li>
+                    <li class="nav-item"><a href="hash.html"><i class="fas fa-hashtag"></i> Hachage et signature</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1>Cryptographie Asymétrique</h1>
+                <p>Expérimentez la cryptographie asymétrique avec RSA, Diffie-Hellman, ECC et ElGamal.</p>
+            </div>
+        </section>
+
+        <!-- Onglets pour les différents algorithmes -->
+        <section class="tool-section">
+            <div class="container">
+                <div class="tool-tabs">
+                    <button class="tab-btn active" data-tab="rsa">RSA</button>
+                    <button class="tab-btn" data-tab="dh">Diffie-Hellman</button>
+                    <button class="tab-btn" data-tab="ecc">ECC</button>
+                    <button class="tab-btn" data-tab="elgamal">ElGamal</button>
+                </div>
+
+                <!-- RSA -->
+                <div id="rsa" class="tool-content active">
+                    <div class="key-generation">
+                        <button id="rsa-generate" class="btn btn-primary"><i class="fas fa-key"></i> Générer clés</button>
+                    </div>
+                    <div class="key-display">
+                        <div class="input-group">
+                            <label for="rsa-public-key">Clé publique (RSA)</label>
+                            <textarea id="rsa-public-key" readonly placeholder="La clé publique RSA apparaîtra ici..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="rsa-private-key">Clé privée (RSA)</label>
+                            <textarea id="rsa-private-key" readonly placeholder="La clé privée RSA apparaîtra ici..."></textarea>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="rsa-plaintext">Texte à chiffrer/déchiffrer (RSA)</label>
+                        <textarea id="rsa-plaintext" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button id="rsa-encrypt" class="btn btn-primary"><i class="fas fa-lock"></i> Chiffrer</button>
+                        <button id="rsa-decrypt" class="btn btn-secondary"><i class="fas fa-lock-open"></i> Déchiffrer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="rsa-result">Résultat</label>
+                        <textarea id="rsa-result" readonly placeholder="Le résultat apparaîtra ici..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Diffie-Hellman -->
+                <div id="dh" class="tool-content">
+                    <div class="key-generation">
+                        <button id="dh-generate" class="btn btn-primary"><i class="fas fa-key"></i> Générer clés</button>
+                    </div>
+                    <div class="key-display">
+                        <div class="input-group">
+                            <label for="dh-public-key">Clé publique (DH)</label>
+                            <textarea id="dh-public-key" readonly placeholder="La clé publique DH..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="dh-private-key">Clé privée (DH)</label>
+                            <textarea id="dh-private-key" readonly placeholder="La clé privée DH..."></textarea>
+                        </div>
+                    </div>
+                    <p class="note-box">
+                        <i class="fas fa-info-circle"></i> Diffie-Hellman est surtout utilisé pour l’échange de clés,
+                        le chiffrement du message final se fait souvent avec une clé symétrique dérivée.
+                    </p>
+                </div>
+
+                <!-- ECC -->
+                <div id="ecc" class="tool-content">
+                    <div class="key-generation">
+                        <button id="ecc-generate" class="btn btn-primary"><i class="fas fa-key"></i> Générer clés</button>
+                    </div>
+                    <div class="key-display">
+                        <div class="input-group">
+                            <label for="ecc-public-key">Clé publique (ECC)</label>
+                            <textarea id="ecc-public-key" readonly placeholder="La clé publique ECC..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="ecc-private-key">Clé privée (ECC)</label>
+                            <textarea id="ecc-private-key" readonly placeholder="La clé privée ECC..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ElGamal -->
+                <div id="elgamal" class="tool-content">
+                    <div class="key-generation">
+                        <button id="elgamal-generate" class="btn btn-primary"><i class="fas fa-key"></i> Générer clés</button>
+                        <button id="elgamal-copy" class="btn btn-outline"><i class="fas fa-copy"></i> Copier</button>
+                        <button id="elgamal-clear" class="btn btn-outline"><i class="fas fa-trash"></i> Effacer</button>
+                    </div>
+                    <div class="key-display">
+                        <div class="input-group">
+                            <label for="elgamal-public-key">Clé publique (ElGamal)</label>
+                            <textarea id="elgamal-public-key" readonly placeholder="(p, g, y)..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="elgamal-private-key">Clé privée (ElGamal)</label>
+                            <textarea id="elgamal-private-key" readonly placeholder="(s)..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Section info -->
+    <section class="info-section">
+        <div class="container">
+            <h2>À propos des chiffrements asymétriques</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>RSA</h3>
+                    <p>
+                        RSA est l’un des algorithmes asymétriques les plus utilisés,
+                        basé sur la difficulté de factoriser de grands nombres.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>Diffie-Hellman</h3>
+                    <p>
+                        Cet algorithme permet un échange de clé sécurisé entre deux
+                        parties, utilisé pour établir une clé symétrique sur un canal non sécurisé.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>ECC</h3>
+                    <p>
+                        Elliptic Curve Cryptography, réputé pour des clés plus courtes
+                        mais un niveau de sécurité élevé, grâce aux courbes elliptiques.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>ElGamal</h3>
+                    <p>
+                        Basé sur le logarithme discret, ElGamal offre chiffrement,
+                        signature numérique et partage de clés.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer commun -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Crypt-Decrypt</h3>
+                    <p>Un projet éducatif pour explorer les différentes techniques de cryptographie.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="classic.html">Chiffrement classique</a></li>
+                        <li><a href="symmetric.html">Cryptographie symétrique</a></li>
+                        <li><a href="asymmetric.html">Cryptographie asymétrique</a></li>
+                        <li><a href="hash.html">Hachage et signature</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@cryptdecrypt.example</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Crypt-Decrypt. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/asymmetric.js"></script>
+</body>
+</html>
