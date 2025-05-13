@@ -338,17 +338,6 @@ function handleBlowfishCipher(action) {
 /* ---------------------- Fonctions utilitaires ---------------------- */
 
 /**
- * Affiche une alerte (utilise showAlert du fichier main.js si présent)
- */
-function showAlert(message, type) {
-    if (typeof window.showAlert === 'function') {
-        window.showAlert(message, type);
-    } else {
-        alert(`[${type}] ${message}`);
-    }
-}
-
-/**
  * Copie dans le presse-papiers
  */
 function copyToClipboard(resultId, buttonElement) {
@@ -375,15 +364,4 @@ function showCopyFeedback(button) {
     setTimeout(() => {
         button.innerHTML = originalText;
     }, 2000);
-}
-
-/**
- * Efface le champ texte et le champ résultat
- */
-function clearFields(textId, resultId) {
-    const textField = document.getElementById(textId);
-    const resultField = document.getElementById(resultId);
-    if (textField) textField.value = '';
-    if (resultField) resultField.value = '';
-    showAlert('Champs effacés', 'info');
 }
