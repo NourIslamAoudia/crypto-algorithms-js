@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypt-Decrypt | Accueil</title>
+    <title>Analyse de Fréquence</title>
     <link rel="icon" href="assets/images/private-key.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
     <header class="header">
@@ -15,12 +15,12 @@
             <a href="index.html" class="logo">Crypt<span>Decrypt</span></a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li class="nav-item active"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
                     <li class="nav-item"><a href="classic.html"><i class="fas fa-history"></i> Classique</a></li>
                     <li class="nav-item"><a href="symmetric.html"><i class="fas fa-key"></i> Symétrique</a></li>
                     <li class="nav-item"><a href="asymmetric.html"><i class="fas fa-key"></i><i class="fas fa-key"></i> Asymétrique</a></li>
                     <li class="nav-item"><a href="hash.html"><i class="fas fa-hashtag"></i> Hachage</a></li>
-                    <li class="nav-item"><a href="freq_analys.html"><i class="fas fa-chart-bar"></i> Analyse de fréquence</a></li>
+                    <li class="nav-item active"><a href="freq_analys.html"><i class="fas fa-chart-bar"></i> Analyse de fréquence</a></li>
                 </ul>
                 <button class="nav-toggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
@@ -30,52 +30,49 @@
     </header>
 
     <main class="main">
-        <section class="hero">
+        <section class="page-header">
             <div class="container">
-                <h1>Explorer le monde de la cryptographie</h1>
-                <p>Un outil complet pour chiffrer, déchiffrer et comprendre les principes de la cryptographie moderne.</p>
-                <div class="cta-buttons">
-                    <a href="classic.html" class="btn btn-primary">Commencer</a>
-                    <a href="#features" class="btn btn-secondary">En savoir plus</a>
+                <h1>Analyse de Fréquence</h1>
+                <p>Calculez la fréquence des lettres, l'Index of Coincidence et effectuez un examen de Kasiski.</p>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <div class="container">
+                <div class="input-group">
+                    <label for="freq-text">Texte à analyser</label>
+                    <textarea id="freq-text" placeholder="Entrez votre texte ici..."></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button id="btn-frequency" class="btn btn-primary">Fréquences Lettres</button>
+                    <button id="btn-ioc" class="btn btn-secondary">Index of Coincidence</button>
+                    <button id="btn-kasiski" class="btn btn-secondary">Examen Kasiski</button>
+                    <button id="btn-clear" class="btn btn-outline">Effacer</button>
+                </div>
+
+                <div class="result-group">
+                    <label for="freq-result">Résultats</label>
+                    <textarea id="freq-result" readonly placeholder="Les résultats apparaîtront ici..."></textarea>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features">
+        <section class="info-section">
             <div class="container">
-                <h2>Nos fonctionnalités</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <h3>Chiffrements classiques</h3>
-                        <p>César, Vigenère et autres méthodes historiques de chiffrement.</p>
-                        <a href="classic.html" class="btn btn-outline">Explorer</a>
+                <h2>À propos de l'analyse de fréquence</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Fréquence des Lettres</h3>
+                        <p>La fréquence des lettres permet de repérer les occurrences les plus fréquentes dans un texte. Très utilisée en cryptanalyse pour découvrir d’éventuelles substitutions.</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <h3>Cryptographie symétrique</h3>
-                        <p>Méthodes utilisant une seule clé comme AES pour chiffrer/déchiffrer.</p>
-                        <a href="symmetric.html" class="btn btn-outline">Explorer</a>
+                    <div class="info-card">
+                        <h3>Index of Coincidence (IOC)</h3>
+                        <p>L’IOC évalue la probabilité que deux lettres choisies au hasard dans un texte soient identiques. Les langues et les méthodes de chiffrement influencent grandement cet indice.</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-key"></i><i class="fas fa-key"></i>
-                        </div>
-                        <h3>Cryptographie asymétrique</h3>
-                        <p>Méthodes utilisant des paires de clés publiques/privées comme RSA.</p>
-                        <a href="asymmetric.html" class="btn btn-outline">Explorer</a>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-hashtag"></i>
-                        </div>
-                        <h3>Hachage et signatures</h3>
-                        <p>Fonctions de hachage (SHA256) et signatures numériques.</p>
-                        <a href="hash.html" class="btn btn-outline">Explorer</a>
+                    <div class="info-card">
+                        <h3>Examen de Kasiski</h3>
+                        <p>Technique de cryptanalyse des chiffres polyalphabétiques comme Vigenère. Il recherche des répétitions dans le texte chiffré pour en déduire la longueur de la clé.</p>
                     </div>
                 </div>
             </div>
@@ -97,6 +94,7 @@
                         <li><a href="symmetric.html">Cryptographie symétrique</a></li>
                         <li><a href="asymmetric.html">Cryptographie asymétrique</a></li>
                         <li><a href="hash.html">Hachage et signature</a></li>
+                        <li><a href="freq_analys.html">Analyse de fréquence</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -115,6 +113,14 @@
         </div>
     </footer>
 
+    <style>
+        #freq-result {
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+    </style>
     <script src="js/main.js"></script>
+    <script src="js/freq_analys.js"></script>
 </body>
 </html>
