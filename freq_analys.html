@@ -119,6 +119,22 @@
             font-family: 'Courier New', monospace;
             font-weight: 500;
         }
+        .result-group textarea#freq-result {
+            background-color: rgba(2, 12, 27, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--light-color);
+            font-family: 'Courier New', monospace; /* Texte plus typé console */
+            padding: 12px;
+            transition: var(--transition);
+            min-height: 120px;
+            resize: vertical; /* Permet de redimensionner verticalement si nécessaire */
+        }
+
+        .result-group textarea#freq-result:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
     </style>
     <script src="js/main.js"></script>
     <script src="js/freq_analys.js"></script>
