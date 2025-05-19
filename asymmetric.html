@@ -132,6 +132,18 @@
                             <textarea id="elgamal-private-key" readonly placeholder="(s)..."></textarea>
                         </div>
                     </div>
+                    <div class="input-group">
+                        <label for="elgamal-plaintext">Texte à chiffrer (ElGamal)</label>
+                        <textarea id="elgamal-plaintext" placeholder="Entrez votre texte ici..."></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button id="elgamal-encrypt" class="btn btn-primary"><i class="fas fa-lock"></i> Chiffrer</button>
+                        <button id="elgamal-decrypt" class="btn btn-secondary"><i class="fas fa-lock-open"></i> Déchiffrer</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="elgamal-result">Résultat</label>
+                        <textarea id="elgamal-result" readonly placeholder="Le résultat apparaîtra ici..."></textarea>
+                    </div>
                 </div>
 
             </div>

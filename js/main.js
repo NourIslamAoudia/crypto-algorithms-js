@@ -121,7 +121,7 @@ function initializeClearFunctionality() {
  * @param {string} type - The type of alert (success, error, info, warning)
  */
 function showAlert(message, type = 'success') {
-    // Create alert container if it doesn't exist
+    // Créer un conteneur pour les alertes s'il n'existe pas
     let alertContainer = document.getElementById('alert-container');
     
     if (!alertContainer) {
@@ -137,12 +137,12 @@ function showAlert(message, type = 'success') {
         document.body.appendChild(alertContainer);
     }
     
-    // Create the alert element
+    // Créer l'élément d'alerte
     const alert = document.createElement('div');
     alert.className = `alert alert-${type}`;
     alert.textContent = message;
     
-    // Style the alert
+    // Style de l'alerte
     alert.style.padding = '10px 20px';
     alert.style.marginBottom = '10px';
     alert.style.borderRadius = '4px';
@@ -150,7 +150,7 @@ function showAlert(message, type = 'success') {
     alert.style.opacity = '0';
     alert.style.transition = 'opacity 0.3s ease-in-out';
     
-    // Set background color based on type
+    // Couleur de fond selon le type
     switch(type) {
         case 'success':
             alert.style.backgroundColor = '#4CAF50';
@@ -170,20 +170,20 @@ function showAlert(message, type = 'success') {
             break;
     }
     
-    // Add to container
+    // Ajouter au conteneur
     alertContainer.appendChild(alert);
     
-    // Trigger animation
+    // Animation d'apparition
     setTimeout(() => {
         alert.style.opacity = '1';
     }, 10);
     
-    // Remove after delay
+    // Suppression après un délai
     setTimeout(() => {
         alert.style.opacity = '0';
         setTimeout(() => alert.remove(), 300);
         
-        // Remove container if empty
+        // Supprimer le conteneur s'il est vide
         if (alertContainer.children.length === 0) {
             alertContainer.remove();
         }
